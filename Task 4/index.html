@@ -1,0 +1,144 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <style>
+        * {
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+            margin: 23px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #cont {
+            box-shadow: 5px 14px 43px rgb(48, 46, 46);
+            border-radius: 20px;
+            background: linear-gradient(155deg, rgb(173, 31, 55), rgb(102, 4, 102));
+            width: 500px;
+            height: 550px;
+        }
+
+        h1 {
+            color: rgb(158, 165, 170);
+            text-align: center;
+            font-size: 73px;
+            text-shadow: 5px 5px 19px rgb(99, 105, 109);
+        }
+
+        input {
+            box-shadow: 2px 4px 14px 3px rgb(16, 18, 19);
+            border: 2px solid rgb(129, 114, 114);
+            background: transparent;
+            padding: 5px;
+            display: flex;
+            outline: none;
+            height: 39px;
+            width: 300px;
+            border-radius: 29px;
+            color: white;
+        }
+
+        .input {
+            gap: 9px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input::placeholder {
+            color: rgb(172, 156, 156);
+            font-size: 11px;
+            letter-spacing: 1;
+        }
+
+        button {
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            color: rgb(202, 217, 219);
+            border: none;
+            background: linear-gradient(130deg, rgb(23, 172, 172), rgb(18, 80, 100));
+            box-shadow: 2px 4px 14px 3px rgb(16, 18, 19);
+            padding: 5px;
+            display: flex;
+            outline: none;
+            height: 42px;
+            width: 200px;
+            border-radius: 29px;
+            font-size: 19px;
+        }
+
+        button:hover {
+            box-shadow: 2px 4px 24px 3px rgb(45, 122, 160);
+        }
+
+        label {
+            width: 275px;
+            color: white;
+            font-size: 13px;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="cont">
+        <h1>Sign Up</h1>
+        <div class="input">
+            <label for="email">Email:</label>
+            <input type="email" name="" id="email" placeholder="Enter E-mail :">
+            <span id="email_error"></span>
+            <label for="password">Password:</label>
+            <input type="password" name="" id="pass" placeholder="Enter password :">
+            <span id="pass_error"></span>
+            <button id="btn">Create Account</button>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("cont").addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission by default
+
+            const email = document.getElementById("email").value.trim();
+            const pass = document.getElementById("pass").value.trim();
+            const email_error = document.getElementById("email_error");
+            const pass_error = document.getElementById("pass_error");
+
+            email_error.textContent = "";
+            pass_error.textContent = "";
+
+            let isValid = true;
+            if (email.length < 5) {
+                email_error.textContent = "E-mail must contain at least 5 characters ";
+                isValid = false;
+            }
+            if (pass.length < 5) {
+                pass_error.textContent = "Password must contain at least 5 characters ";
+                isValid = false;
+            }
+            if (isValid) {
+                alert("Form submitted Successfully !")
+                event.target.submit();
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
